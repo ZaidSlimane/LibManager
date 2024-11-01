@@ -1,2 +1,2 @@
 # LibManager
-Library management system : This project is based on how to use pattern design in system and help writing more structured code
+This project is based on how to choose and use the propriate design patterns for a library management system
