@@ -15,6 +15,7 @@ class Book extends Model
         'author',
         'publication_date', // Updated attribute
         'nb_pages',
+        'type',
     ];
 
     protected $casts = [
