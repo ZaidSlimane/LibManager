@@ -23,6 +23,7 @@ return array(
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Models\\Book' => $baseDir . '/app/Models/Book.php',
     'App\\Models\\Employee' => $baseDir . '/app/Models/Employee.php',
+
     'App\\Models\\Lend' => $baseDir . '/app/Models/Lend.php',
     'App\\Models\\Library' => $baseDir . '/app/Models/Library.php',
     'App\\Models\\Student' => $baseDir . '/app/Models/Student.php',
@@ -32,6 +33,11 @@ return array(
     'App\\Models\\Types\\DigitalBook' => $baseDir . '/app/Models/Types/DigitalBook.php',
     'App\\Models\\Types\\MagazineBook' => $baseDir . '/app/Models/Types/MagazineBook.php',
     'App\\Models\\Types\\PaperBook' => $baseDir . '/app/Models/Types/PaperBook.php',
+
+    'App\\Models\\Library' => $baseDir . '/app/Models/Library.php',
+    'App\\Models\\Student' => $baseDir . '/app/Models/Student.php',
+    'App\\Models\\Supplier' => $baseDir . '/app/Models/Supplier.php',
+
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
