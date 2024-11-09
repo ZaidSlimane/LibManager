@@ -542,6 +542,7 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Book' => __DIR__ . '/../..' . '/app/Models/Book.php',
         'App\\Models\\Employee' => __DIR__ . '/../..' . '/app/Models/Employee.php',
+
         'App\\Models\\Lend' => __DIR__ . '/../..' . '/app/Models/Lend.php',
         'App\\Models\\Library' => __DIR__ . '/../..' . '/app/Models/Library.php',
         'App\\Models\\Student' => __DIR__ . '/../..' . '/app/Models/Student.php',
@@ -551,6 +552,11 @@ class ComposerStaticInitfe33f98a750b8c5a51b30c78bd3fab21
         'App\\Models\\Types\\DigitalBook' => __DIR__ . '/../..' . '/app/Models/Types/DigitalBook.php',
         'App\\Models\\Types\\MagazineBook' => __DIR__ . '/../..' . '/app/Models/Types/MagazineBook.php',
         'App\\Models\\Types\\PaperBook' => __DIR__ . '/../..' . '/app/Models/Types/PaperBook.php',
+
+        'App\\Models\\Library' => __DIR__ . '/../..' . '/app/Models/Library.php',
+        'App\\Models\\Student' => __DIR__ . '/../..' . '/app/Models/Student.php',
+        'App\\Models\\Supplier' => __DIR__ . '/../..' . '/app/Models/Supplier.php',
+
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

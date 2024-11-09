@@ -25,5 +25,7 @@ class Employee extends User
         return $this->belongsTo(User::class);
     }
 
-    // You can define additional methods or attributes here as necessary
-}
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }}

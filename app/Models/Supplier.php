@@ -3,19 +3,17 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends User
+class Supplier extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'phone',                    // Phone number
-        'address',                  // Address
-        'commercial_register_number', // Commercial register number
+        'user_id',
+        'phone',                    
+        'address',                  
+        'commercial_register_number', 
     ];
 
     /**

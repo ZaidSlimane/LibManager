@@ -10,11 +10,9 @@ class Student extends User
      * @var array<int, string>
      */
     protected $fillable = [
-        'student_id',
-        // Inherited fields from User model
-        'name',
-        'email',
-        'password',
+     'user_id',
+     'student_id',
+     'speciality',
     ];
 
     /**
@@ -31,8 +29,8 @@ class Student extends User
      *
      * @return string
      */
-    public function getStudentId()
+    public function user()
     {
-        return $this->student_id;
+        return $this->belongsTo(User::class);
     }
 }
