@@ -183,7 +183,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\BookServiceProvider::class,
         App\Providers\EmployeeServiceProvider::class,
-        
+        App\Providers\SupplierServiceProvider::class,
+        App\Providers\LendServiceProvider::class,
         /*
          * Package Service Providers...
          */
