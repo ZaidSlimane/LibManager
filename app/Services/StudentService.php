@@ -26,4 +26,8 @@ class StudentService
     {
         return Student::all();
     }
+    public function getStudentById(int $id)
+    {
+        return Student::findOrFail($id);
+    }
 }

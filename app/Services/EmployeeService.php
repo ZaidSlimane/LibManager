@@ -36,4 +36,8 @@ class EmployeeService
     {
         return Employee::all();
     }
+    public function getEmployeeById(int $id)
+    {
+        return Employee::findOrFail($id);
+    }
 }

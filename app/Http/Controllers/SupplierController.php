@@ -45,4 +45,9 @@ class SupplierController extends Controller
 
         return response()->json(['success' => 'Supplier deleted successfully.']);
     }
+    public function show($id)
+    {
+        $supplier = SupplierFacade::getSupplierById($id);
+        return response()->json($supplier);
+    }
 }

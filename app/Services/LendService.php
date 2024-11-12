@@ -46,4 +46,8 @@ class LendService
     {
         return Lend::all();
     }
+    public function getLendById(int $id)
+    {
+        return Lend::with('books')->findOrFail($id);
+    }
 }

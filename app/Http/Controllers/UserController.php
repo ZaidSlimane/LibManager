@@ -50,4 +50,9 @@ class UserController extends Controller
 
         return response()->json(['success' => 'User deleted successfully.']);
     }
+    public function show($id)
+    {
+        $user = UserFacade::getUserById($id);
+        return response()->json($user);
+    }
 }
