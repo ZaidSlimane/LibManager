@@ -28,4 +28,8 @@ class SupplierService
     {
         return Supplier::all();
     }
+    public function getSupplierById(int $id)
+    {
+        return Supplier::findOrFail($id);
+    }
 }

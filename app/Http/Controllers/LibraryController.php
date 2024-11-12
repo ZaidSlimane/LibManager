@@ -42,4 +42,9 @@ class LibraryController extends Controller
 
         return response()->json(['success' => 'Library deleted successfully.']);
     }
+    public function show($id)
+    {
+        $library = LibraryFacade::getLibraryById($id);
+        return response()->json($library);
+    }
 }

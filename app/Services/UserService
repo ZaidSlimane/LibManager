@@ -37,4 +37,8 @@ class UserService
     {
         return User::all();
     }
+    public function getUserById(int $id)
+    {
+        return User::findOrFail($id);
+    }
 }
