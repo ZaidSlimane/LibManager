@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\UserFacade;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -9,30 +10,44 @@ class UserController extends Controller
 {
     public function index()
     {
-        return User::all();
+        $users = UserFacade::getAllUsers();
+        return response()->json($users);
     }
 
     public function store(Request $request)
     {
-        $user = User::create($request->all());
-        return response()->json($user, 201);
+        $validated = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8',
+            'role' => 'required|string|max:255',
+        ]);
+
+        $user = UserFacade::createUser($validated);
+
+        return response()->json($user);
     }
 
-    public function show($id)
+    public function update(Request $request, User $user)
     {
-        return User::findOrFail($id);
+        $validated = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'sometimes|nullable|string|min:8',
+            'role' => 'required|string|max:255',
+        ]);
+
+        $user = UserFacade::updateUser($user, $validated);
+
+        return response()->json($user);
     }
 
-    public function update(Request $request, $id)
+    public function destroy(User $user)
     {
-        $user = User::findOrFail($id);
-        $user->update($request->all());
-        return response()->json($user, 200);
-    }
+        UserFacade::deleteUser($user);
 
-    public function destroy($id)
-    {
-        User::findOrFail($id)->delete();
-        return response()->json(null, 204);
+        return response()->json(['success' => 'User deleted successfully.']);
     }
 }

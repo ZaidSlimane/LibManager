@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Facades\LibraryFacade;
 use App\Models\Library;
 use Illuminate\Http\Request;
 
@@ -9,30 +10,36 @@ class LibraryController extends Controller
 {
     public function index()
     {
-        return Library::all();
+        $libraries = LibraryFacade::getAllLibraries();
+        return response()->json($libraries);
     }
 
     public function store(Request $request)
     {
-        $library = Library::create($request->all());
-        return response()->json($library, 201);
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $library = LibraryFacade::createLibrary($validated);
+
+        return response()->json($library);
     }
 
-    public function show($id)
+    public function update(Request $request, Library $library)
     {
-        return Library::findOrFail($id);
+        $validated = $request->validate([
+            'name' => 'string|max:255',
+        ]);
+
+        $library = LibraryFacade::updateLibrary($library, $validated);
+
+        return response()->json($library);
     }
 
-    public function update(Request $request, $id)
+    public function destroy(Library $library)
     {
-        $library = Library::findOrFail($id);
-        $library->update($request->all());
-        return response()->json($library, 200);
-    }
+        LibraryFacade::deleteLibrary($library);
 
-    public function destroy($id)
-    {
-        Library::findOrFail($id)->delete();
-        return response()->json(null, 204);
+        return response()->json(['success' => 'Library deleted successfully.']);
     }
 }

@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
+    public function index()
+    {
+        $employees = EmployeeFacade::getAllEmployees();
+        return response()->json($employees);
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -18,7 +24,6 @@ class EmployeeController extends Controller
             'job_title' => 'required|string|max:255',
         ]);
 
-        // Utiliser la façade pour créer l'employé
         $employee = EmployeeFacade::createEmployee($validated);
 
         return response()->json($employee);
@@ -33,17 +38,15 @@ class EmployeeController extends Controller
             'job_title' => 'required|string|max:255',
         ]);
 
-        // Utiliser la façade pour mettre à jour l'employé
         $employee = EmployeeFacade::updateEmployee($employee, $validated);
 
-        return redirect()->route('employees.index')->with('success', 'Employé mis à jour avec succès.');
+        return response()->json($employee);
     }
 
     public function destroy(Employee $employee)
     {
-        // Utiliser la façade pour supprimer l'employé
         EmployeeFacade::deleteEmployee($employee);
 
-        return redirect()->route('employees.index')->with('success', 'Employé supprimé avec succès.');
+        return response()->json(['success' => 'Employee deleted successfully.']);
     }
 }

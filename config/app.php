@@ -185,6 +185,8 @@ return [
         App\Providers\EmployeeServiceProvider::class,
         App\Providers\SupplierServiceProvider::class,
         App\Providers\LendServiceProvider::class,
+        App\Providers\LibraryServiceProvider::class,
+        App\Providers\UserServiceProvider::class,
         /*
          * Package Service Providers...
          */

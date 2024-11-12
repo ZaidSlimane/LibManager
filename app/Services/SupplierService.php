@@ -23,4 +23,9 @@ class SupplierService
     {
         $supplier->delete();
     }
+
+    public function getAllSuppliers()
+    {
+        return Supplier::all();
+    }
 }

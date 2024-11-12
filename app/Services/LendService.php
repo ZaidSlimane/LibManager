@@ -41,4 +41,9 @@ class LendService
         $lend->books()->detach();
         $lend->delete();
     }
+
+    public function getAllLends()
+    {
+        return Lend::all();
+    }
 }

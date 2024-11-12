@@ -31,4 +31,9 @@ class EmployeeService
         // Supprime l'employé de la base de données
         $employee->delete();
     }
+
+    public function getAllEmployees()
+    {
+        return Employee::all();
+    }
 }

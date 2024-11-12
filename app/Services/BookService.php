@@ -37,4 +37,9 @@ class BookService
     {
         $book->delete();
     }
+
+    public function getAllBooks()
+    {
+        return Book::all();
+    }
 }
