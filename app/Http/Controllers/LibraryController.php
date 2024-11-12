@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Facades\LibraryFacade;
+
 use App\Models\Library;
 use Illuminate\Http\Request;
 
@@ -10,12 +11,17 @@ class LibraryController extends Controller
 {
     public function index()
     {
+
+        return Library::all();
+
         $libraries = LibraryFacade::getAllLibraries();
         return response()->json($libraries);
+
     }
 
     public function store(Request $request)
     {
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
         ]);
@@ -43,3 +49,4 @@ class LibraryController extends Controller
         return response()->json(['success' => 'Library deleted successfully.']);
     }
 }
+
