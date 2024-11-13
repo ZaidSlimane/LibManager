@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Facades\BookFacade;
 use Illuminate\Http\Request;
+use App\Factories\BookFactory;
+
+
 
 class BookController extends Controller
 {
@@ -15,6 +18,8 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
+       echo("Initialize the creation");
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'category' => 'required|string|max:255',

@@ -21,4 +21,6 @@ class Book extends Model
     protected $casts = [
         'publication_date' => 'datetime', // Updated attribute
     ];
+
+
 }

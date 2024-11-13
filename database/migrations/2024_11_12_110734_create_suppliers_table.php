@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateSuppliersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('suppliers', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id(); // Clé primaire
+            $table->string('name'); // Nom du fournisseur
+            $table->string('email')->unique(); // Email du fournisseur
+            $table->string('password'); // Mot de passe
+            $table->string('phone'); // Numéro de téléphone
+            $table->string('address'); // Adresse
+            $table->string('commercial_register_number'); // Numéro de registre commercial
+            $table->timestamps(); // Colonnes created_at et updated_at
         });
     }
 
@@ -28,4 +34,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('suppliers');
     }
-};
+}
