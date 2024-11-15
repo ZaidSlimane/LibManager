@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Interfaces\Subscriber; // Correct the namespace for Subscriber
 
-class User extends Model
+class User extends Model implements Subscriber
 {
     use HasFactory;
 
@@ -20,7 +21,7 @@ class User extends Model
         'email',
         'password',
         'role',
-        
+        'interests', 
     ];
 
     /**
@@ -39,6 +40,7 @@ class User extends Model
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'interests' => 'array', // Corrected cast for interests
     ];
 
     public function supplier()
@@ -46,14 +48,30 @@ class User extends Model
         return $this->hasOne(Supplier::class);
     }
 
-    public function student(){
-        return $this->hasOne(Student::class)
+    public function student()
+    {
+        return $this->hasOne(Student::class); // Fixed missing semicolon
     }
 
-    public function employee(){
-        return $this->hasOne(Employee::class)
+    public function employee()
+    {
+        return $this->hasOne(Employee::class); // Fixed missing semicolon
     }
 
+    /**
+     * Define the many-to-many relationship with Book model.
+     */
+    public function interestedBooks()
+    {
+        return $this->belongsToMany(Book::class, 'user_interested_books')
+                    ->withTimestamps();
+    }
 
-
+    /**
+     * Notify user about new book.
+     */
+    public function sendUpdateNotification($message)
+    {
+        echo "Notification for {$this->first_name}: $message\n";
+    }
 }

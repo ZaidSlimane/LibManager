@@ -4,5 +4,5 @@ namespace App\Interfaces;
 
 interface Subscriber
 {
-    public function update($message);
+    public function sendUpdateNotification($message);
 }

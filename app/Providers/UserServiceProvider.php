@@ -7,13 +7,19 @@ use Illuminate\Support\ServiceProvider;
 
 class UserServiceProvider extends ServiceProvider
 {
+    /**
+     * Register services.
+     */
     public function register()
     {
-        $this->app->singleton('UserService', function ($app) {
+        $this->app->singleton(UserService::class, function ($app) {
             return new UserService();
         });
     }
 
+    /**
+     * Bootstrap services.
+     */
     public function boot()
     {
         //
