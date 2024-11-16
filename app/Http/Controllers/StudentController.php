@@ -43,4 +43,9 @@ class StudentController extends Controller
 
         return response()->json(['success' => 'Student deleted successfully.']);
     }
+    public function show($id)
+    {
+        $student = StudentFacade::getStudentById($id);
+        return response()->json($student);
+    }
 }

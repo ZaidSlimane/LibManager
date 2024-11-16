@@ -46,4 +46,8 @@ class BookService
     {
         return Book::all();
     }
+    public function getBookById(int $id)
+    {
+        return Book::findOrFail($id);
+    }
 }

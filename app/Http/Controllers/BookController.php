@@ -56,4 +56,10 @@ class BookController extends Controller
 
         return response()->json(['success' => 'Book deleted successfully.']);
     }
+    public function show($id)
+    {
+        $book = BookFacade::getBookById($id);
+        return response()->json($book);
+    }
+
 }

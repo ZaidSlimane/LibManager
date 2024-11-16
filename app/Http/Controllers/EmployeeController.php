@@ -49,4 +49,9 @@ class EmployeeController extends Controller
 
         return response()->json(['success' => 'Employee deleted successfully.']);
     }
+    public function show($id)
+    {
+        $employee = EmployeeFacade::getEmployeeById($id);
+        return response()->json($employee);
+    }
 }

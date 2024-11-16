@@ -46,4 +46,9 @@ class LendController extends Controller
 
         return response()->json(['success' => 'Lend deleted successfully.']);
     }
+    public function show($id)
+    {
+        $lend = LendFacade::getLendById($id);
+        return response()->json($lend);
+    }
 }

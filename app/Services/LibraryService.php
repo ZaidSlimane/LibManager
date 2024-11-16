@@ -31,4 +31,8 @@ class LibraryService
     {
         return Library::all();
     }
+    public function getLibraryById(int $id)
+    {
+        return Library::findOrFail($id);
+    }
 }
