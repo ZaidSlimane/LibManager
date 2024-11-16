@@ -9,6 +9,37 @@ class Library extends Model
 {
     use HasFactory;
 
+    protected $subscribers = [];
+
+    public function addSubscriber(User $user)
+    {
+        $this->subscribers[] = $user;
+    }
+
+    public function removeSubscriber(User $user)
+    {
+        $this->subscribers = array_filter(
+            $this->subscribers,
+            fn($subscriber) => $subscriber->id !== $user->id
+        );
+    }
+
+    public function addBook(Book $book)
+    {
+        $this->notifySubscribers($book);
+    }
+
+
+
+    protected function notifySubscribers(Book $book)
+    {
+        foreach ($this->subscribers as $subscriber) {
+            if (in_array($book->category, $subscriber->interests)) {
+                $subscriber->update("A new book titled '{$book->title}' in your favorite category '{$book->category}' is now available!");
+            }
+        }
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -26,4 +57,12 @@ class Library extends Model
     {
         return $this->hasMany(Book::class);
     }
+
+
 }
+
+
+
+
+ 
+

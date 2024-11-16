@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Services;
-
+use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Factories\BookFactory;
+
+
 
 class BookService
 {
@@ -21,10 +23,12 @@ class BookService
         $book->nb_pages = $data['nb_pages'];
         $book->type = $bookType->getType();
 
-        // Enregistrer le livre
-        $book->save();
-
-        return $book;
+        try {
+            $book->save();
+        } catch (\Exception $e) {
+            \Log::error("Error saving book: " . $e->getMessage());
+            return response()->json(['error' => 'Could not save book'], 500);
+        }
     }
 
     public function updateBook(Book $book, array $data)
