@@ -18,14 +18,14 @@ class Employee extends User
     ];
 
     /**
-     * Get the user associated with the employee.
+     * Get the user asssociated with the employee.
      */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }}
+
+
+
+}

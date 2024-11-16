@@ -37,8 +37,10 @@ class UserService
     {
         return User::all();
     }
-    public function getUserById(int $id)
+
+
+    public function fetchUserByInterest(string $interest)
     {
-        return User::findOrFail($id);
+        return User::whereJsonContains('interests', $interest)->get();
     }
 }

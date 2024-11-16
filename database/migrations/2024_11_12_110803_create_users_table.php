@@ -19,9 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('role');
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('role')->nullable();
+            $table->json('interests')->nullable(); // Storing 'interests' as JSON to handle array
             $table->timestamps();
+            $table->timestamp('email_verified_at')->nullable();
         });
     }
 

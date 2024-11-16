@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = UserFacade::getAllUsers();
+        $users = User::all();
         return response()->json($users);
     }
 

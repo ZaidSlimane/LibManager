@@ -3,9 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use app\Observers\UserObserver;
+use App\Observers\UserObserver;
 
-class AppServiceProvider extends ServiceProvider
+class UserObserverProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -17,15 +17,5 @@ class AppServiceProvider extends ServiceProvider
         $this->app->singleton(UserObserver::class, function ($app) {
             return new UserObserver();
         });
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
     }
 }
