@@ -196,6 +196,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        app\Providers\UserServiceProvider::class,
 
 
 

@@ -74,7 +74,7 @@ class LibraryController extends Controller
        
     
         // Pass the validated data to the UserFacade to create a new user
-        $user = UserFacade::createUser($validated);
+        $user = User::create($validated);
     
         return response()->json($user);
     }
